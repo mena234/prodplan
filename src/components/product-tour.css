@@ -1,0 +1,312 @@
+.product-tour {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-ink);
+  overflow: hidden;
+  font: 400 16px/1.55 var(--font-body);
+}
+.product-tour::backdrop {
+  background: transparent;
+}
+.product-tour:not(.has-spotlight) {
+  background: rgb(18 32 55 / 56%);
+}
+.tour-spotlight {
+  position: fixed;
+  border: 2px solid #6c87ff;
+  border-radius: 9px;
+  box-shadow: 0 0 0 9999px rgb(18 32 55 / 56%);
+  pointer-events: none;
+}
+.tour-card {
+  position: fixed;
+  width: min(440px, calc(100vw - 32px));
+  max-height: calc(100dvh - 32px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 24px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-rule);
+  border-radius: 14px;
+  box-shadow: 0 16px 60px rgb(11 27 57 / 25%);
+}
+.product-tour:not(.has-spotlight) .tour-card {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.tour-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.tour-topline > span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-accent);
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: 1px;
+}
+.tour-topline .icon-button {
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+}
+.tour-progress {
+  background: var(--color-rule);
+  height: 3px;
+  margin: 14px 0 20px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.tour-progress > span {
+  display: block;
+  height: 100%;
+  background: var(--color-accent);
+}
+.tour-counter {
+  color: var(--color-muted);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  margin: 0 0 8px;
+}
+.product-tour .tour-card h2 {
+  font-family: var(--font-display);
+  font-size: 24px;
+  line-height: 1.25;
+  font-weight: 650;
+  margin: 0 0 14px;
+  letter-spacing: -0.5px;
+}
+.tour-card h2:focus {
+  outline: none;
+}
+.tour-description {
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+}
+.tour-detail {
+  font-size: 14px;
+  line-height: 1.6;
+  padding: 14px 0 0;
+  margin: 18px 0 0;
+  border-top: 1px solid var(--color-rule);
+  color: #53617b;
+}
+.tour-footer {
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 26px;
+}
+.tour-footer > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+.tour-footer .button {
+  min-height: 44px;
+  font-size: 14px;
+  padding: 9px 13px;
+  white-space: normal;
+}
+.tour-skip {
+  font-size: 14px;
+  color: #53617b;
+  min-height: 44px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  flex-shrink: 0;
+}
+.tour-flow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  list-style: none;
+  gap: 12px;
+  margin: 24px 0 0;
+  padding: 0;
+}
+.tour-flow li {
+  border-top: 1px solid var(--color-rule-strong);
+  padding-top: 12px;
+}
+.tour-flow span {
+  color: var(--color-accent);
+  font: 600 20px var(--font-display);
+}
+.tour-flow strong {
+  display: block;
+  font-size: 15px;
+  margin: 6px 0 2px;
+}
+.tour-flow small {
+  display: block;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #53617b;
+}
+.tour-example {
+  padding: 14px;
+  margin: 20px 0 0;
+  background: var(--color-blue-soft);
+  border-radius: 8px;
+}
+.tour-example figcaption {
+  font-size: 13px;
+  color: #53617b;
+  margin-bottom: 12px;
+}
+.tour-example-row {
+  display: grid;
+  grid-template-columns: 85px 1fr;
+  align-items: center;
+  gap: 8px;
+  margin: 6px 0;
+  font-size: 14px;
+}
+.tour-example-row > span {
+  padding: 6px 10px;
+  border-left: 3px solid var(--color-accent);
+  background: white;
+  border-radius: 4px;
+}
+.tour-example p {
+  font-size: 13px;
+  color: #53617b;
+  margin: 10px 0 0;
+}
+.tour-intro-button {
+  margin-top: 16px;
+  color: var(--color-accent);
+  font-size: 14px;
+  white-space: normal;
+}
+.topbar .tour-intro-button {
+  margin-top: 0;
+}
+[data-tour="view-content"],
+[data-tour="planning-risks"] {
+  scroll-margin-top: 20px;
+}
+.p-onboarding {
+  padding: 24px;
+  margin-bottom: 28px;
+  border: 1px solid var(--color-rule-strong);
+  border-top: 3px solid var(--color-accent);
+  border-radius: 9px;
+  background: var(--color-surface);
+}
+.p-onboarding > p {
+  font-size: 14px;
+  color: #53617b;
+  margin: 8px 0 16px;
+}
+.p-setup-count {
+  font-size: 14px;
+  white-space: nowrap;
+  color: #53617b;
+}
+.p-onboarding ol {
+  margin: 0 0 20px;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 28px;
+}
+.p-onboarding li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid var(--color-rule);
+  padding: 16px 0;
+}
+.p-onboarding li > span {
+  display: flex;
+  color: var(--color-muted);
+}
+.p-onboarding li.complete > span {
+  color: var(--color-green);
+}
+.p-onboarding li > div {
+  flex: 1;
+}
+.p-onboarding li strong {
+  font-size: 14px;
+}
+.p-onboarding li small {
+  display: block;
+  color: #53617b;
+  font-size: 13px;
+}
+.p-onboarding .p-link {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  flex-shrink: 0;
+  min-height: 44px;
+  font-size: 14px;
+}
+.p-onboarding button:disabled {
+  color: var(--color-muted);
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+@media (max-width: 700px) {
+  .tour-card {
+    padding: 20px;
+  }
+  .product-tour .tour-card h2 {
+    font-size: 22px;
+  }
+  .tour-footer {
+    gap: 8px;
+  }
+  .tour-footer .button {
+    padding: 9px 10px;
+  }
+  .tour-footer .button svg {
+    display: none;
+  }
+  .p-onboarding {
+    padding: 20px 16px;
+  }
+  .p-onboarding ol {
+    grid-template-columns: 1fr;
+  }
+  .p-onboarding .p-section-head {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .topbar .tour-intro-button {
+    padding: 7px;
+    min-height: 36px;
+    max-width: 145px;
+    font-size: 12px;
+  }
+  .topbar .tour-intro-button svg {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .product-tour *,
+  [data-tour] {
+    scroll-behavior: auto !important;
+  }
+}

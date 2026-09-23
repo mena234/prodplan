@@ -1,0 +1,99 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Machine {
+  id                   String     @id
+  name                 String
+  code                 String     @unique
+  kind                 String
+  dailyCapacityMinutes Int
+  shifts               Shift[]
+  downtime             Downtime[]
+  products             Product[]
+}
+
+model Shift {
+  id          String  @id
+  machineId   String
+  machine     Machine @relation(fields: [machineId], references: [id])
+  weekday     Int
+  startMinute Int
+  endMinute   Int
+
+  @@index([machineId])
+}
+
+model Downtime {
+  id          String  @id
+  machineId   String
+  machine     Machine @relation(fields: [machineId], references: [id])
+  date        String
+  startMinute Int
+  endMinute   Int
+  reason      String
+
+  @@index([machineId, date])
+}
+
+model Material {
+  id           String    @id
+  name         String
+  code         String    @unique
+  stockGrams   Int
+  reorderGrams Int
+  bomLines     BomLine[]
+}
+
+model Product {
+  id             String          @id
+  name           String
+  sku            String          @unique
+  machineId      String
+  machine        Machine         @relation(fields: [machineId], references: [id])
+  minutesPerUnit Int
+  bom            BomLine[]
+  orders         CustomerOrder[]
+}
+
+model BomLine {
+  productId    String
+  materialId   String
+  product      Product  @relation(fields: [productId], references: [id])
+  material     Material @relation(fields: [materialId], references: [id])
+  gramsPerUnit Int
+
+  @@id([productId, materialId])
+}
+
+model CustomerOrder {
+  id        String  @id
+  customer  String
+  productId String
+  product   Product @relation(fields: [productId], references: [id])
+  quantity  Int
+  priority  String
+  deadline  String
+  state     String
+
+  @@index([priority, deadline])
+}
+
+model PlanningState {
+  id        String   @id
+  revision  Int      @default(0)
+  schedule  Json?
+  updatedAt DateTime @updatedAt
+}
+
+model PlanEvent {
+  id        String   @id @default(cuid())
+  revision  Int
+  action    String
+  createdAt DateTime @default(now())
+}

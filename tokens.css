@@ -1,0 +1,48 @@
+/* Hallmark · pre-emit critique: P4 H5 E4 S5 R5 V4
+ * macrostructure: Workbench · theme: Cobalt · nav: N3 adapted side rail · footer: Ft2
+ * audience: production planners · use: client demonstration · tone: precise, industrial
+ */
+:root {
+  --color-paper: #f8f9fc;
+  --color-surface: #fefeff;
+  --color-sidebar: #f4f6fa;
+  --color-ink: #202a3e;
+  --color-body: #3e4b61;
+  --color-muted: #647187;
+  --color-faint: #647187;
+  --color-rule: #e4e8ef;
+  --color-rule-strong: #d0d7e3;
+  --color-accent: #345de3;
+  --color-accent-hover: #254bbd;
+  --color-accent-ink: #fefeff;
+  --color-focus: #2247a9;
+  --color-blue-soft: #edf2ff;
+  --color-blue-rule: #ccdaff;
+  --color-green: #26735b;
+  --color-green-soft: #edf7f1;
+  --color-green-rule: #cce5d6;
+  --color-amber: #98600f;
+  --color-amber-soft: #fff8e9;
+  --color-amber-rule: #f0ddb5;
+  --color-red: #b64347;
+  --color-red-soft: #fff0ef;
+  --color-red-rule: #efcccc;
+  --color-cyan: #217086;
+  --color-cyan-soft: #eaf5f9;
+  --color-cyan-rule: #c6e3ee;
+  --color-overlay: #14233b55;
+  --color-transparent: transparent;
+  --font-body: "DM Sans Variable", sans-serif;
+  --font-display: "Space Grotesk Variable", sans-serif;
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --text-sm: 0.75rem;
+  --text-body: 0.875rem;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --dur-fast: 150ms;
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
